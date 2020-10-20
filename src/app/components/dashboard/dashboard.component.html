@@ -1,0 +1,63 @@
+<!--dash.component.html-->
+<div class="grid-container">
+  <h1 class="mat-h1">Dashboard</h1>
+  <mat-grid-list cols="{{ ( cardLayout | async )?.columns }}" rowHeight="200px">
+
+    <!--Charts-->
+    <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols"
+      [rowspan]="( cardLayout | async )?.chart.rows">
+      <app-card title="Total orders chart">
+        <div>
+          <app-total-orders-chart></app-total-orders-chart>
+        </div>
+      </app-card>
+    </mat-grid-tile>
+
+    <!-- <a [routerLink]="[ '/path', routeParam ]">name</a> -->
+    <!--Mini Cards-->
+    <a [routerLink]="[ '/result' ]" [queryParams] = "{ linkName: 'totalOrders' }">
+      <mat-grid-tile [colspan]="( cardLayout | async )?.miniCard.cols"
+        [rowspan]="( cardLayout | async )?.miniCard.rows">
+        <app-card title="Total Orders">
+          <div>
+            <h1> 4401 </h1>
+          </div>
+        </app-card>
+      </mat-grid-tile>
+    </a>
+
+    <a [routerLink]="[ '/result' ]">
+      <mat-grid-tile [colspan]="( cardLayout | async )?.miniCard.cols"
+        [rowspan]="( cardLayout | async )?.miniCard.rows">
+        <app-card title="Fulfilled">
+          <div>
+            <h1>1230</h1>
+          </div>
+        </app-card>
+      </mat-grid-tile>
+    </a>
+
+    <a [routerLink]="[ '/result' ]">
+      <mat-grid-tile [colspan]="( cardLayout | async )?.miniCard.cols"
+        [rowspan]="( cardLayout | async )?.miniCard.rows">
+        <app-card title="Delayed">
+          <div>
+            <h1>1100</h1>
+          </div>
+        </app-card>
+      </mat-grid-tile>
+    </a>
+
+    <a [routerLink]="[ '/result' ]">
+      <mat-grid-tile [colspan]="( cardLayout | async )?.miniCard.cols"
+        [rowspan]="( cardLayout | async )?.miniCard.rows">
+        <app-card title="On track">
+          <div>
+            <h1>2071</h1>
+          </div>
+        </app-card>
+      </mat-grid-tile>
+    </a>
+
+  </mat-grid-list>
+ </div>
